@@ -14,7 +14,7 @@ const post_user = async(req , res)=>{
       console.log(req.body);
       let data = new userdb({ firstname :firstname,  lastname:lastname , State:State ,password:password,  City:City ,Zip:Zip })
       await data.save()
-      res.status(201).json({message :"success"})
+      res.status(201).json({message :"dekei"})
     } catch (error) { 
         console.log("error");
         res.json({msg:"error"})
