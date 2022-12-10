@@ -14,7 +14,7 @@ const post_user = async(req , res)=>{
       console.log(req.body);
       let data = new userdb({ firstname :firstname,  lastname:lastname , State:State ,password:password,  City:City ,Zip:Zip })
       await data.save()
-      res.status(201).json({message :"dekei"})
+      res.status(201).json({message :"success"})
     } catch (error) { 
         console.log("error");
         res.json({msg:"error"})
@@ -43,5 +43,14 @@ try {
 }
 }
 
+const get_single_user = async(req , res) =>{
+  try {
+    let id = req.params.id 
+    const user= await userdb.findById({_id : id})
+    res.json(user)
+  } catch (error) {
+          res.json(error)
+  } 
+}
 
-module.exports = {get_data , post_user , delete_user , update_user}
+module.exports = {get_data , post_user , delete_user , update_user , get_single_user}
